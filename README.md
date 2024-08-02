@@ -1,24 +1,6 @@
-# README
+# Wave-Secure-Chat
+Projeto de implementação de um chat inspirado no Google Wave, para o primeiro trabalho da disciplina de Aspectos de Linguagem de Programação, ministrada na Universidade Tecnológica Federal do Paraná.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Código desenvolvido por:
+- Hugo Naoki Sonoda Okumura - RA: 2321890
+- João Vitor Souza Rocha - RA: 2349400
