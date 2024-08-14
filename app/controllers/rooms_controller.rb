@@ -1,10 +1,9 @@
 class RoomsController < ApplicationController
 
   def index
+    @room = Room.new
     @current_user = current_user
-    unless @current_user
-      redirect_to '/signin' and return
-    end
+    redirect_to '/signin' unless @current_user
     @rooms = Room.public_rooms
     @users = User.all_except(@current_user)
   end
@@ -18,9 +17,9 @@ class RoomsController < ApplicationController
     @single_room = Room.find(params[:id])
     @rooms = Room.public_rooms
     @users = User.all_except(@current_user)
-    @room = Room.new
     @message = Message.new
-
+    @messages = @single_room.messages
+    @room = Room.new
     render "index"
   end
 end

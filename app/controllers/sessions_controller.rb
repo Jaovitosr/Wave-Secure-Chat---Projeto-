@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
         user = User.find_by(username: params[:session][:username])
         if user
             log_in(user)
+            redirect_to root_path
         else
             render 'new'
         end
