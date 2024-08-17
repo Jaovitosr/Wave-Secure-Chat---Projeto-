@@ -14,4 +14,9 @@ class SessionsController < ApplicationController
         log_out if logged_in?
         redirect_to root_path
     end
+
+    def clear_session
+        session[:user_id] = nil
+        redirect_to root_path
+    end
 end

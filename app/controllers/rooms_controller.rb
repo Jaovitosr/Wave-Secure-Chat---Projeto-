@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
 
+  before_action :require_login
+
   def index
     @current_user = current_user
     @room = Room.new
@@ -21,6 +23,11 @@ class RoomsController < ApplicationController
     @messages = @single_room.messages
     @room = Room.new
     render "index"
+  end
+
+
+  def require_login
+    redirect_to root_path unless current_user
   end
 
 end

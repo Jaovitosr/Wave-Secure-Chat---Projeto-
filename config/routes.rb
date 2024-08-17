@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :users
   root 'rooms#index'
+  get 'clear_session', to: 'sessions#clear_session'
 end
