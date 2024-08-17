@@ -1,28 +1,26 @@
-<div class = "row">
-    <div class = "col-md-3">
-        <h5> Bem vindo, <%= @current_user.username %>! </h5>
-        <h4> Seus Contatos </h4>
-        <div>
-            <%= turbo_stream_from "users" %>
-            <div id="users">
-                <%= render @users %>
-            </div>
-        </div>
-        <h4> Rooms </h4>
+<div class="row">
+    <div class="col-md-3">
+        <h5> Bem-vindo, <%= @current_user.username %>! </h5>
+        <h4> Salas </h4>
         <%= render partial: "layouts/new_room_form" %>
         <div>
             <%= turbo_stream_from "rooms" %>
             <div id="rooms">
-                <%= render @rooms %>
+                <% @rooms.each do |room| %>
+                    <%= link_to room.name, room_path(room), class: "btn btn-room" %>
+                <% end %>
             </div>
         </div>
     </div>
-    <div class="col-md-9 bg-dark text-light">
+
+    <div class="col-md-9">
         <% if @single_room %>
             <h4 class="text-center"> <%= @single_room.name %> </h4>
             <%= turbo_stream_from @single_room %>
-            <div id="messages">
-                <%= render @messages %>
+            <div id="messages-container">
+                <div id="messages">
+                    <%= render @messages %>
+                </div>
             </div>
             <%= render partial: 'layouts/new_message_form' %>
         <% end %>
