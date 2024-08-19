@@ -1,0 +1,7 @@
+<div id="rooms">
+  <% if rooms.present? %>
+    <% rooms.each do |room| %>
+      <%= render partial: "rooms/room", locals: { room: room } %>
+    <% end %>
+  <% end %>
+</div>

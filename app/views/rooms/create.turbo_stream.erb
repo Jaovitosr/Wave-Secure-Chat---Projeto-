@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "rooms" do %>
+    <%= render partial: "rooms/rooms", locals: { rooms: Room.all } %>
+  <% end %>

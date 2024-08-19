@@ -12,6 +12,12 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.create(name: params["room"] ["name"])
+    if @room.save
+      respond_to do |format|
+        format.turbo_stream
+        format.html {redirect_to @room}
+      end
+    end
   end
 
   def show
