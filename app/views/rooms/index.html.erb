@@ -2,6 +2,7 @@
     <div class="col-md-3">
         <h5> Bem-vindo, <%= @current_user.username %>! </h5>
         <h4> Salas </h4>
+        <input type="hidden" id="user-id" value="<%= @current_user.id %>">
         <%= render partial: "layouts/new_room_form" %>
         <div>
             <%= turbo_stream_from "rooms" %>
@@ -16,6 +17,7 @@
     <div class="col-md-9">
         <% if @single_room %>
             <h4 class="text-center"> <%= @single_room.name %> </h4>
+            <input type="hidden" id="room-id" value="<%= @single_room.id %>">
             <%= turbo_stream_from @single_room %>
             <div id="messages-container">
                 <div id="messages">

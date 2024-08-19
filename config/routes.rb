@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/registrar', to: 'user#new'
+  post '/registrar', to: 'user#create'
+
   get 'rooms/index'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
@@ -6,7 +10,7 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
-  resources :users
+  # resources :users
   root 'rooms#index'
   get 'clear_session', to: 'sessions#clear_session'
 end
